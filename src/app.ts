@@ -2,10 +2,10 @@ import { GraphQLServer } from 'graphql-yoga';
 //import express from 'express'
 //import bodyParser from 'body-parser'
 import {makeExecutableSchema} from 'graphql-tools';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 
 import typeDefs from './schema';
-import resolvers from './resolvers';
+import resolvers from './resolvers/resolvers';
 
 export const schema = makeExecutableSchema({
     typeDefs,
@@ -23,3 +23,5 @@ const server = new GraphQLServer({
         
     })
 })
+
+server.start(() => console.log(`Server is running on http://localhost:4000`))
