@@ -1,5 +1,0 @@
-enum _ModelMutationType {
-  CREATED
-  UPDATED
-  DELETED
-}
