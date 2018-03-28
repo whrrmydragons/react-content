@@ -1,0 +1,14 @@
+type Component {
+  _id:String
+  name:String,
+  type:String,
+  data:String,
+  props:[String],
+}
+
+input ComponentInput {
+  name:String,
+  type:String,
+  data:String,
+  props:[String],
+}

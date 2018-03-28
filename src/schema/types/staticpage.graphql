@@ -1,0 +1,27 @@
+type StaticPage {
+  _id:String
+  name:String,
+  assets:Asset,
+  content:[Component],
+}
+
+type Asset {
+  backgroundImage:String,
+  mainIcon:String,
+  footerIcon:String,
+  otherImages:[String],
+}
+
+input StaticPageInput {
+  _id:String
+  name:String,
+  assets:AssetInput,
+  content:[ComponentInput],
+}
+
+input AssetInput {
+  backgroundImage:String,
+  mainIcon:String,
+  footerIcon:String,
+  otherImages:[String],
+}

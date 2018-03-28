@@ -1,35 +1,31 @@
-import { GraphQLServer } from 'graphql-yoga';
-//import express from 'express'
-//import bodyParser from 'body-parser'
-import {makeExecutableSchema} from 'graphql-tools';
-import * as mongo from 'mongoose';
+const { GraphQLServer } = require('graphql-yoga');
 
-import { schema } from "./schema/schema";
-const typeDefs = schema.typeDefs;
-const resolvers = schema.resolvers;
+const {resolvers,typeDefs} = require('./schema/schema.graphql');
 
-// TODO define bluebird promises like in microsoft`s example
+//TODO move to another file
+import  mongoose from 'mongoose';
+mongoose.set('debug',true);
 
+mongoose.connect("mongodb://dbuser:dbpassword@ds261118.mlab.com:61118/react-content");
 
-//import typeDefs from './schema';
-//import resolvers from './resolvers/resolvers';
+export const Schema = mongoose.Schema;
+export {mongoose as mongoose};
 
-//export const schema = makeExecutableSchema({
-//    typeDefs,
-//    resolvers
+/*StaticPage.create({
+    name:"a name",
+    assets:{
+        backgroundImage:"something",
+        mainIcon:"Something",
+        footerIcon:"SomethingEsle",
+        otherImages:["a","b"]
+    },
+    content:["5aa4cafcf36d28237f19be88","5aa4cafcf36d28237f19be88"],
 
-const mongoClient = mongo.connect('mongodb://dbuser:dbpassword@ds261118.mlab.com:61118/react-content',
-(err)=>{
-    if(err)console.log("error connecting to mongo");
-    else console.log("connected to mongo");
-});
-
+});*/
 
 
+const options = { port: 4000 };
 
+const server = new GraphQLServer({ typeDefs, resolvers });
 
-
-
-
-const server = new GraphQLServer({ typeDefs, resolvers })
-server.start(() => console.log('Server is running on localhost:4000'))
+server.start(options, () => console.log('Server is running on localhost:' + options.port))

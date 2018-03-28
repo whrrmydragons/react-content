@@ -1,0 +1,12 @@
+type Page { 
+  _id:String,
+  title:String,
+  staticPage:StaticPage,
+  content:[Component],
+}
+
+input PageInput {
+  title:String,
+  staticPage:StaticPageInput,
+  content:[ComponentInput],
+}
