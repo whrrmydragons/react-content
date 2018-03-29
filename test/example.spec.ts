@@ -1,4 +1,6 @@
 import { expect } from 'chai';
+import graphql from 'graphql';
+
 
 import { hello } from '../src/server'
 
