@@ -1,9 +1,12 @@
+scalar JSON
+
 type Component {
-  _id:String
+  _id:String,
   name:String,
   type:String,
   data:String,
-  props:[String],
+  props:JSON,
+  children:[Component]
 }
 
 input ComponentInput {
@@ -11,4 +14,5 @@ input ComponentInput {
   type:String,
   data:String,
   props:[String],
+  
 }

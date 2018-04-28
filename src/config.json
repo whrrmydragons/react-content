@@ -1,0 +1,5 @@
+{
+    "DB":{
+        "connectionString":"mongodb://localhost/react-content"
+    }
+}

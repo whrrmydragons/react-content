@@ -1,8 +1,16 @@
 {
-    "defaultSeverity": "error",
+    "defaultSeverity": "warning",
     "extends": [
-        "tslint:latest"
+         "tslint-config-airbnb"
     ],
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
+}
+/*
+{
+    "defaultSeverity": "warning",
+    "extends": "tslint-config-airbnb",
     "jsRules": {},
     "rules": {
         "no-console":false,
@@ -11,4 +19,4 @@
         "interface-name":false,
     },
     "rulesDirectory": []
-}
+}*/

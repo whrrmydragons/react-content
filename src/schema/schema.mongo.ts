@@ -26,10 +26,12 @@ export interface IStaticPageModel extends mongoose.Document {
 
 export const componentSchema = new 
 Schema({
+        
         name:String,
         type:String,
         data:String,
-        props:[String],
+        props:Schema.Types.Mixed,
+        children:[{type:Schema.Types.ObjectId,ref:'Component'}]
     });
 
 

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.spec.ts",
     "start": "node dist/app.js",
-    "build": "tsc && npx cpy 'src/schema/types/*.graphql' dist/schema/types"
+    "build": "tsc && npx cpy 'src/schema/types/*.graphql' dist/schema/types && npx cpy 'src/*.json' dist/"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "mocha": "^5.0.4",
     "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
     "tslint-config-prettier": "^1.10.0",
     "typescript": "^2.7.2"
   },

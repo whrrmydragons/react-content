@@ -4,12 +4,12 @@ import {
   staticPageSchema,
   IComponentModel,
   IPageModel,
-  IStaticPageModel
-} from "./schema.mongo";
+  IStaticPageModel,
+} from './schema.mongo';
 import mongoose from 'mongoose';
 import bluebird from 'bluebird';
 
-import {createUpdateDeleteFactoryUnion} from './resolversFactory';
+import { createUpdateDeleteFactoryUnion } from './resolversFactory';
 mongoose.Promise = bluebird;
 
 export const Component =  mongoose.model<IComponentModel>('Component',componentSchema);
@@ -20,34 +20,38 @@ export const Page = mongoose.model<IPageModel>('Page',pageSchema);
 import {
   Query as componentQuery,
   componentMutations,
-}  from './resolvers/Component'
+  componentFieldsResolvers,
+}  from './resolvers/Component';
+
 import {
   Query as staticPageQuery,
   content as staticPageContent, 
   staticPageFieldsResolvers,
   staticPageMutations,
-} from './resolvers/StaticPage'
+} from './resolvers/StaticPage';
+
 import {
   Query as pageQuery,
   content as pageContent,
   pageFieldsResolvers,
   pageMutations,
 }
-  from './resolvers/Page'
+  from './resolvers/Page';
 
 export const resolvers =  {
-    Query: {
-     ...componentQuery,
-     ...staticPageQuery,
-     ...pageQuery,
+  Query: {
+    ...componentQuery,
+    ...staticPageQuery,
+    ...pageQuery,
   },
   Mutation:{
     ...componentMutations,
-   ...staticPageMutations,
+    ...staticPageMutations,
     ...pageMutations,
   },
-  //fields resolvers
+  // fields resolvers
   ...staticPageFieldsResolvers,
   ...pageFieldsResolvers,
+  ...componentFieldsResolvers
 
-}
+};

@@ -7,24 +7,24 @@ type Query {
   staticPages:[StaticPage]
   pages:[Page]
 
-  component(id:String):Component
-  staticPage(id:String):StaticPage
-  page(id:String):Page
+  component(_id:String):Component
+  staticPage(_id:String):StaticPage
+  page(_id:String):Page
 }
 
 
 type Mutation {
   createPage(input:PageInput):Page
-  deletePage(id:String):Page
-  updatePage(id:String,input:PageInput):Page
+  deletePage(_id:String):Page
+  updatePage(_id:String,input:PageInput):Page
 
   createStaticPage(input:StaticPageInput):StaticPage
-  deleteStaticPage(id:String):StaticPage
-  updateStaticPage(id:String,input:StaticPageInput):StaticPage
+  deleteStaticPage(_id:String):StaticPage
+  updateStaticPage(_id:String,input:StaticPageInput):StaticPage
 
   createComponent(input:ComponentInput):Component
-  deleteComponent(id:String):Component
-  updateComponent(id:String,input:ComponentInput):Component
+  deleteComponent(_id:String):Component
+  updateComponent(_id:String,input:ComponentInput):Component
 
 
 }

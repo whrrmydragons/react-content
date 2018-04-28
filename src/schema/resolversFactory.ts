@@ -24,7 +24,7 @@ function getAllFactory(model:any){
 }
 //creates a query function that returns all instances from a mongoose model
 function getByIDFactory(model:any){
-  return (obj:any, args:any, context:any)=>model.find({_id:args.id});
+  return (obj:any, args:any, context:any)=>model.findById(args._id);
 }
   //creates a mutation function for creating new instaces in different collections\models
     function createFactory(model:any){
@@ -32,10 +32,10 @@ function getByIDFactory(model:any){
   }
   //creates a mutation function for deleting instaces in different collections\models
   function deleteFactory(model:any){
-    return (obj:any,args:any,context:any)=>model.findByIdAndRemove(args.id);
+    return (obj:any,args:any,context:any)=>model.findByIdAndRemove(args._id);
   }
   
   //creates a mutation function for creating updating instaces in different collections\models
   function updateFactory(model:any){
-    return (obj:any,args:any,context:any)=> model.findByIdAndUpdate(args.id,args.input);
+    return (obj:any,args:any,context:any)=> model.findByIdAndUpdate(args._id,args.input);
   }
